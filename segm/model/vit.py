@@ -6,8 +6,8 @@ https://github.com/rwightman/pytorch-image-models
 import torch
 import torch.nn as nn
 
-from segm.model.utils import init_weights, resize_pos_embed
-from segm.model.blocks import Block
+from .utils import init_weights, resize_pos_embed
+from .blocks import Block
 
 from timm.models.layers import DropPath
 from timm.models.layers import trunc_normal_
@@ -48,7 +48,7 @@ class VisionTransformer(nn.Module):
         dropout=0.1,
         drop_path_rate=0.0,
         distilled=False,
-        channels=3,
+        channels=1,
     ):
         super().__init__()
         self.patch_embed = PatchEmbedding(
