@@ -50,9 +50,9 @@ def gather_data(seg_pred, tmp_dir=None):
     and loaded on the master node to compute metrics
     """
     if tmp_dir is None:
-        tmpprefix = os.path.expandvars("$WORK/temp")
+        tmpprefix = os.path.expandvars("$DATASET/temp")
     else:
-        tmpprefix = tmp_dir
+        tmpprefix = os.path.expandvars(tmp_dir)
     MAX_LEN = 512
     # 32 is whitespace
     dir_tensor = torch.full((MAX_LEN,), 32, dtype=torch.uint8, device=ptu.device)
